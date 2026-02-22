@@ -2,106 +2,128 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SLAUGHTER HOUSE | المسلخ الرقمي</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE VOID | الكيان المظلم</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body id="hell-body">
+<body onclick="initAudio()">
 
-    <audio id="bg-horror" loop src="https://www.soundjay.com/ambient/sounds/ghost-whispers-01.mp3"></audio>
-    <audio id="heart-beat" loop src="https://www.soundjay.com/human/sounds/heartbeat-01.mp3"></audio>
+    <audio id="ambient" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3"></audio>
 
-    <div id="horror-gate">
-        <div class="gate-wrap">
-            <h2 class="warning-title">تـحـذيـر: هـذا المـوقـع قـد يـقـتـلك</h2>
-            <p>بضغطك على الزر، أنت توافق على تسليم روحك للكيان.</p>
-            <button onclick="enterHell()" class="blood-btn">أوافـق عـلى الـمـوت</button>
-        </div>
+    <div class="static-noise"></div>
+    <div class="vignette-heavy"></div>
+    <div class="blood-drips">
+        <div class="drip"></div><div class="drip"></div><div class="drip"></div>
     </div>
 
-    <div class="glitch-screen"></div>
-    <div class="blood-drops-container"></div>
-
-    <header class="hell-header">
-        <h1 class="giant-glitch" data-text="الـمـوت">الـمـوت</h1>
-        <div class="eyes-container">
-            <div class="horror-eye left"><div class="pupil"></div></div>
-            <div class="horror-eye right"><div class="pupil"></div></div>
+    <header class="master-header">
+        <div class="glitch-container">
+            <h1 class="glitch-title" data-text="الــفـراغ">الــفـراغ</h1>
+            <p class="subtitle">هل أنت مستعد لمواجهة مخاوفك؟</p>
         </div>
-        <div class="venom-status-top">Listening to Venom</div>
+        <div class="scroll-down">▼</div>
     </header>
 
-    <section class="maze-section">
-        <div class="corridor"><h2>هل تسمعهم؟</h2></div>
-        <div class="corridor"><h2>هم خلفك الآن</h2></div>
-        <div class="corridor"><h2>لا تحاول الهرب</h2></div>
-        </section>
-
-    <main class="horror-gallery-pro">
-        <div class="terror-item" onmouseover="playScream()">
-            <div class="text">الملف 01: جثث مجهولة</div>
+    <section class="watcher-room">
+        <div class="eye-wrapper">
+            <div class="eye-lid">
+                <div class="eye-ball">
+                    <div class="iris">
+                        <div class="pupil-dark"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="terror-item" onmouseover="playScream()">
-            <div class="text">الملف 02: صرخات الليل</div>
-        </div>
-        </main>
-
-    <section class="ritual-chamber-pro">
-        <div class="pentagram-svg">
-            <img src="https://cdn.pixabay.com/photo/2013/07/12/17/39/star-152153_1280.png" class="rotating-star">
-        </div>
-        <div class="ritual-text">
-            <h3>الـطـقـوس الأخيره</h3>
-            <p>أنت الآن جزء من الكود.. لن تخرج أبداً.</p>
+        <div class="room-text">
+            <h3>أنا أراك دائماً</h3>
+            <p>لا تحاول إغلاق المتصفح.. لقد فات الأوان.</p>
         </div>
     </section>
 
-    <footer class="final-footer">
-        <div class="logs">
-            <p>> ERROR: SOUL_NOT_FOUND</p>
-            <p>> DELETING_LIFE_SYSTEMS...</p>
+    <main class="horror-gallery">
+        <div class="gallery-track">
+            <div class="horror-card">
+                <div class="card-inner">
+                    <div class="card-front">01</div>
+                    <div class="card-back">الموت ليس النهاية</div>
+                </div>
+            </div>
+            <div class="horror-card">
+                <div class="card-inner">
+                    <div class="card-front">02</div>
+                    <div class="card-back">الظلام صديقك الوحيد</div>
+                </div>
+            </div>
+            <div class="horror-card">
+                <div class="card-inner">
+                    <div class="card-front">03</div>
+                    <div class="card-back">اسمع صرخاتهم</div>
+                </div>
+            </div>
+            <div class="horror-card">
+                <div class="card-inner">
+                    <div class="card-front">04</div>
+                    <div class="card-back">لا تنظر تحت السرير</div>
+                </div>
+            </div>
         </div>
-        <div class="status-venom">
-            <span class="pulse"></span> Listening to Venom
+    </main>
+
+    <section class="ritual-chamber">
+        <div class="pentagram-container">
+            <svg class="pentagram" viewBox="0 0 100 100">
+                <polygon points="50,5 20,95 95,35 5,35 80,95" />
+            </svg>
+        </div>
+        <div class="ritual-content">
+            <h2>طقوس الاستدعاء</h2>
+            <ul class="requirements">
+                <li>روح بلا خطيئة</li>
+                <li>شمعة سوداء محترقة</li>
+                <li>صمت مطبق</li>
+            </ul>
+            <button class="scare-trigger" onclick="triggerJumpscare()">اضغط للمقايضة</button>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="info-block">
+            <h4>تاريخ الكيان</h4>
+            <p>بدأ كل شيء في عام 1923 عندما اختفت مدينة كاملة في غضون ثوانٍ. لم يبقَ سوى هذا الكود البرمجي الذي تشاهده الآن...</p>
+        </div>
+        <div class="info-block">
+            <h4>لماذا أنت هنا؟</h4>
+            <p>الفضول قتل القطة، ولكنه سيؤدي بك إلى ما هو أسوأ بكثير. أنت الآن جزء من النظام.</p>
+        </div>
+    </section>
+
+    <footer class="abyss-footer">
+        <div class="status-indicator">
+            <div class="venom-glow"></div>
+            <span class="status-label">© 2026 TheRealVenom All Rights Reserved</span>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 تم تطويره في أعماق الجحيم الرقمي</p>
         </div>
     </footer>
 
-    <div id="js-overlay" class="hidden-js">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwd3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZ25vcmUmY3Q9Zw/3o7TKv9QW_Z_pY_R_q/giphy.gif">
+    <div id="jumpscare" class="jumpscare-overlay">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwd3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZ25vcmUmY3Q9Zw/3o7TKv9QW_Z_pY_R_q/giphy.gif" alt="SCARY">
     </div>
 
     <script>
-        function enterHell() {
-            document.getElementById('horror-gate').style.display = 'none';
-            document.getElementById('bg-horror').play();
-            document.getElementById('heart-beat').play();
-            // صرخة مفاجئة بعد 10 ثواني
-            setTimeout(triggerJumpscare, 10000);
+        function initAudio() {
+            document.getElementById('ambient').play();
         }
-
-        function playScream() {
-            let s = new Audio('https://www.soundjay.com/human/sounds/person-scream-01.mp3');
-            s.volume = 0.5;
-            s.play();
-        }
-
         function triggerJumpscare() {
-            const js = document.getElementById('js-overlay');
+            const js = document.getElementById('jumpscare');
+            const scream = new Audio('https://www.soundjay.com/human/sounds/person-scream-01.mp3');
+            scream.play();
             js.style.display = 'flex';
-            new Audio('https://www.soundjay.com/human/sounds/person-scream-01.mp3').play();
-            document.body.classList.add('seizure-mode');
-            setTimeout(() => {
-                js.style.display = 'none';
-                document.body.classList.remove('seizure-mode');
-            }, 1000);
+            setTimeout(() => { js.style.display = 'none'; }, 1000);
+            document.body.classList.add('shake-intense');
+            setTimeout(() => { document.body.classList.remove('shake-intense'); }, 500);
         }
-
-        // جامب سكير عند السكرول العنيف
-        window.onscroll = function() {
-            if (window.scrollY > 2000) {
-                triggerJumpscare();
-            }
-        };
     </script>
 </body>
 </html>
