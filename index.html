@@ -3,126 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE VOID | الكيان المظلم</title>
+    <title>SLAUGHTER HOUSE | مسلخ الأرواح</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body onclick="initAudio()">
+<body id="body-horror">
 
-    <audio id="ambient" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3"></audio>
+    <audio id="whisper-sound" loop src="https://www.soundjay.com/ambient/sounds/ghost-whispers-01.mp3"></audio>
+    <audio id="heartbeat" loop src="https://www.soundjay.com/human/sounds/heartbeat-01.mp3"></audio>
 
-    <div class="static-noise"></div>
-    <div class="vignette-heavy"></div>
-    <div class="blood-drips">
-        <div class="drip"></div><div class="drip"></div><div class="drip"></div>
+    <div class="blood-overlay"></div>
+    <div class="static-distort"></div>
+    <div class="vignette-final"></div>
+
+    <div id="entry-gate">
+        <div class="gate-content">
+            <h2 class="warning-text">تحذير: محتوى غير لائق لضعاف القلوب</h2>
+            <button onclick="unlockAbyss()" class="unlock-btn">أوافق على بيع روحي</button>
+        </div>
     </div>
 
-    <header class="master-header">
-        <div class="glitch-container">
-            <h1 class="glitch-title" data-text="الــفـراغ">الــفـراغ</h1>
-            <p class="subtitle">هل أنت مستعد لمواجهة مخاوفك؟</p>
+    <header class="hell-header">
+        <div class="title-wrap">
+            <h1 class="deep-glitch" data-text="الــمــوت">الــمــوت</h1>
+            <p class="scary-p">أنت الآن في عهدة الكيان..</p>
         </div>
-        <div class="scroll-down">▼</div>
-    </header>
-
-    <section class="watcher-room">
-        <div class="eye-wrapper">
-            <div class="eye-lid">
-                <div class="eye-ball">
-                    <div class="iris">
-                        <div class="pupil-dark"></div>
-                    </div>
+        <div class="eye-container-advanced">
+            <div class="eye-socket-pro">
+                <div class="eye-iris-pro">
+                    <div class="eye-pupil-pro"></div>
+                </div>
+            </div>
+            <div class="eye-socket-pro second-eye">
+                <div class="eye-iris-pro">
+                    <div class="eye-pupil-pro"></div>
                 </div>
             </div>
         </div>
-        <div class="room-text">
-            <h3>أنا أراك دائماً</h3>
-            <p>لا تحاول إغلاق المتصفح.. لقد فات الأوان.</p>
+    </header>
+
+    <section class="infinite-hallway">
+        <div class="hallway-text">
+            <h2>لا نهاية هنا..</h2>
+            <p>كلما نزلت أكثر، كلما نسيت طريق العودة.</p>
+        </div>
+        <div class="wall-frame"></div>
+        <div class="wall-frame"></div>
+        <div class="wall-frame"></div>
+    </section>
+
+    <section class="ghost-section">
+        <div class="ghost-figure" id="ghost-1"></div>
+        <div class="ghost-figure" id="ghost-2"></div>
+        <div class="ritual-circle">
+            <div class="runes">᚛ ᚃ ᚑ ᚈ ᚖ ᚗ   ᚙ ᚚ ᚛</div>
         </div>
     </section>
 
-    <main class="horror-gallery">
-        <div class="gallery-track">
-            <div class="horror-card">
-                <div class="card-inner">
-                    <div class="card-front">01</div>
-                    <div class="card-back">الموت ليس النهاية</div>
-                </div>
-            </div>
-            <div class="horror-card">
-                <div class="card-inner">
-                    <div class="card-front">02</div>
-                    <div class="card-back">الظلام صديقك الوحيد</div>
-                </div>
-            </div>
-            <div class="horror-card">
-                <div class="card-inner">
-                    <div class="card-front">03</div>
-                    <div class="card-back">اسمع صرخاتهم</div>
-                </div>
-            </div>
-            <div class="horror-card">
-                <div class="card-inner">
-                    <div class="card-front">04</div>
-                    <div class="card-back">لا تنظر تحت السرير</div>
-                </div>
-            </div>
+    <main class="mega-horror-grid">
+        <div class="horror-box item-pro-1">
+            <div class="box-inner"><span>لماذا تبتسم؟</span></div>
+        </div>
+        <div class="horror-box item-pro-2">
+            <div class="box-inner"><span>خلفك تماماً</span></div>
+        </div>
+        <div class="horror-box item-pro-3">
+            <div class="box-inner"><span>لا تتنفس</span></div>
+        </div>
+        <div class="horror-box item-pro-4">
+            <div class="box-inner"><span>دمك بارد</span></div>
+        </div>
+        <div class="horror-box item-pro-5">
+            <div class="box-inner"><span>لن تخرج</span></div>
+        </div>
+        <div class="horror-box item-pro-6">
+            <div class="box-inner"><span>انتهى الوقت</span></div>
         </div>
     </main>
 
-    <section class="ritual-chamber">
-        <div class="pentagram-container">
-            <svg class="pentagram" viewBox="0 0 100 100">
-                <polygon points="50,5 20,95 95,35 5,35 80,95" />
-            </svg>
-        </div>
-        <div class="ritual-content">
-            <h2>طقوس الاستدعاء</h2>
-            <ul class="requirements">
-                <li>روح بلا خطيئة</li>
-                <li>شمعة سوداء محترقة</li>
-                <li>صمت مطبق</li>
-            </ul>
-            <button class="scare-trigger" onclick="triggerJumpscare()">اضغط للمقايضة</button>
-        </div>
+    <section class="death-timer-section">
+        <div id="countdown-display">00:00:60</div>
+        <div class="bloody-hand-print"></div>
+        <p class="timer-msg">الوقت المتبقي حتى تجدك "هي"</p>
     </section>
 
-    <section class="info-section">
-        <div class="info-block">
-            <h4>تاريخ الكيان</h4>
-            <p>بدأ كل شيء في عام 1923 عندما اختفت مدينة كاملة في غضون ثوانٍ. لم يبقَ سوى هذا الكود البرمجي الذي تشاهده الآن...</p>
-        </div>
-        <div class="info-block">
-            <h4>لماذا أنت هنا؟</h4>
-            <p>الفضول قتل القطة، ولكنه سيؤدي بك إلى ما هو أسوأ بكثير. أنت الآن جزء من النظام.</p>
-        </div>
-    </section>
+    <article class="leaked-files">
+        <h3>الملف رقم 666: الكيان الرقمي</h3>
+        <p>بدأت الأسطورة عندما قام مبرمج مجهول بكتابة كود بلغة غير معروفة.. يقال أن الكود كان ينبض مثل القلب.</p>
+        <p>في ليلة 8 يناير، سمع الجميع صوت "Venom" يتردد في أروقة السيرفرات..</p>
+        </article>
 
-    <footer class="abyss-footer">
-        <div class="status-indicator">
-            <div class="venom-glow"></div>
-            <span class="status-label">Listening to Venom</span>
+    <div class="final-trigger">
+        <button class="scream-btn" onmouseover="playSmallScream()" onclick="finalJumpscare()">لا تلمسني</button>
+    </div>
+
+    <footer class="terminal-footer">
+        <div class="system-logs">
+            <p>> Loading darkness...</p>
+            <p>> Fetching souls...</p>
+            <p>> ERROR: HEART NOT FOUND</p>
         </div>
-        <div class="copyright">
-            <p>&copy; 2026 تم تطويره في أعماق الجحيم الرقمي</p>
+        <div class="user-status-mega">
+            <div class="venom-symbol">V</div>
+            <div class="status-info">
+                <span class="now-playing">Listening to Venom</span>
+                <span class="bitrate">666 kbps</span>
+            </div>
         </div>
     </footer>
 
-    <div id="jumpscare" class="jumpscare-overlay">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwd3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZ25vcmUmY3Q9Zw/3o7TKv9QW_Z_pY_R_q/giphy.gif" alt="SCARY">
+    <div id="js-overlay" class="js-hidden">
+        <div class="js-image"></div>
     </div>
 
     <script>
-        function initAudio() {
-            document.getElementById('ambient').play();
+        function unlockAbyss() {
+            document.getElementById('entry-gate').style.display = 'none';
+            document.getElementById('whisper-sound').play();
+            document.getElementById('heartbeat').play();
+            startTimer();
         }
-        function triggerJumpscare() {
-            const js = document.getElementById('jumpscare');
-            const scream = new Audio('https://www.soundjay.com/human/sounds/person-scream-01.mp3');
-            scream.play();
-            js.style.display = 'flex';
-            setTimeout(() => { js.style.display = 'none'; }, 1000);
-            document.body.classList.add('shake-intense');
-            setTimeout(() => { document.body.classList.remove('shake-intense'); }, 500);
+        
+        function playSmallScream() {
+            let s = new Audio('https://www.soundjay.com/human/sounds/person-scream-01.mp3');
+            s.volume = 0.2;
+            s.play();
+        }
+
+        function finalJumpscare() {
+            let s = new Audio('https://www.soundjay.com/human/sounds/person-scream-01.mp3');
+            s.volume = 1.0;
+            s.play();
+            document.getElementById('js-overlay').classList.add('active');
+            document.body.classList.add('ultra-shake');
+            setTimeout(() => {
+                document.getElementById('js-overlay').classList.remove('active');
+                document.body.classList.remove('ultra-shake');
+            }, 1500);
+        }
+
+        function startTimer() {
+            let sec = 60;
+            const timer = setInterval(() => {
+                sec--;
+                document.getElementById('countdown-display').innerText = `00:00:${sec < 10 ? '0' + sec : sec}`;
+                if (sec <= 0) {
+                    clearInterval(timer);
+                    finalJumpscare();
+                }
+            }, 1000);
         }
     </script>
 </body>
