@@ -6,22 +6,29 @@
     <title>THE VOID | الكيان المظلم</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body onclick="initAudio()">
+<body id="master-body">
 
-    <audio id="ambient" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3"></audio>
+    <audio id="ambient" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="static-noise"></div>
     <div class="vignette-heavy"></div>
-    <div class="blood-drips">
-        <div class="drip"></div><div class="drip"></div><div class="drip"></div>
+    <div class="blood-rain"></div>
+
+    <div id="gate-keeper">
+        <div class="gate-content">
+            <h1 class="warning-text">تحذير: هل أنت مستعد للضياع؟</h1>
+            <button onclick="unlockHell()" class="gate-btn">أوافق على الدخول</button>
+        </div>
     </div>
 
     <header class="master-header">
         <div class="glitch-container">
             <h1 class="glitch-title" data-text="الــفـراغ">الــفـراغ</h1>
-            <p class="subtitle">هل أنت مستعد لمواجهة مخاوفك؟</p>
+            <p class="subtitle"> Listening to Venom </p>
         </div>
-        <div class="scroll-down">▼</div>
+        <div class="scroll-down-anim">اسحب للأسفل.. إذا كنت تجرؤ</div>
     </header>
 
     <section class="watcher-room">
@@ -36,8 +43,13 @@
         </div>
         <div class="room-text">
             <h3>أنا أراك دائماً</h3>
-            <p>لا تحاول إغلاق المتصفح.. لقد فات الأوان.</p>
+            <p>حتى وأنت تظن أنك وحيد.. أنا خلفك.</p>
         </div>
+    </section>
+
+    <section class="ghost-hallway">
+        <div class="hall-text" data-text="لا مفر">لا مفر</div>
+        <div class="shadow-figure"></div>
     </section>
 
     <main class="horror-gallery">
@@ -82,48 +94,60 @@
                 <li>شمعة سوداء محترقة</li>
                 <li>صمت مطبق</li>
             </ul>
-            <button class="scare-trigger" onclick="triggerJumpscare()">اضغط للمقايضة</button>
+            <button class="scare-trigger" id="scare-btn">اضغط للمقايضة</button>
         </div>
     </section>
 
     <section class="info-section">
         <div class="info-block">
             <h4>تاريخ الكيان</h4>
-            <p>بدأ كل شيء في عام 1923 عندما اختفت مدينة كاملة في غضون ثوانٍ. لم يبقَ سوى هذا الكود البرمجي الذي تشاهده الآن...</p>
-        </div>
-        <div class="info-block">
-            <h4>لماذا أنت هنا؟</h4>
-            <p>الفضول قتل القطة، ولكنه سيؤدي بك إلى ما هو أسوأ بكثير. أنت الآن جزء من النظام.</p>
+            <p>بدأ كل شيء في عام 1923 عندما اختفت مدينة كاملة. البرمجة هنا ليست مجرد كود، إنها لعنة رقمية تنتشر عبر السيرفرات.</p>
         </div>
     </section>
 
     <footer class="abyss-footer">
         <div class="status-indicator">
             <div class="venom-glow"></div>
-            <span class="status-label">© 2026 TheRealVenom All Rights Reserved</span>
+            <span class="status-label">Listening to Venom</span>
         </div>
-        <div class="copyright">
-            <p>&copy; 2026 تم تطويره في أعماق الجحيم الرقمي</p>
-        </div>
+        <p>© 2026 - جحيم المطورين</p>
     </footer>
 
-    <div id="jumpscare" class="jumpscare-overlay">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwd3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZ25vcmUmY3Q9Zw/3o7TKv9QW_Z_pY_R_q/giphy.gif" alt="SCARY">
+    <div id="jumpscare-overlay" class="js-hidden">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwd3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZ25vcmUmY3Q9Zw/3o7TKv9QW_Z_pY_R_q/giphy.gif" alt="SCARY">
     </div>
 
     <script>
-        function initAudio() {
-            document.getElementById('ambient').play();
+        // دالة تشغيل الصوت والدخول
+        function unlockHell() {
+            const gate = document.getElementById('gate-keeper');
+            const ambient = document.getElementById('ambient');
+            gate.style.opacity = '0';
+            setTimeout(() => gate.style.display = 'none', 1000);
+            ambient.play().catch(e => console.log("الصوت يحتاج تفاعل أكبر"));
         }
-        function triggerJumpscare() {
-            const js = document.getElementById('jumpscare');
+
+        // دالة الجامب سكير المحسنة
+        const scareBtn = document.getElementById('scare-btn');
+        const jsOverlay = document.getElementById('jumpscare-overlay');
+        
+        scareBtn.addEventListener('click', function() {
+            // تشغيل صوت صرخة قوي
             const scream = new Audio('https://www.soundjay.com/human/sounds/person-scream-01.mp3');
             scream.play();
-            js.style.display = 'flex';
-            setTimeout(() => { js.style.display = 'none'; }, 1000);
+            
+            // إظهار الوحش
+            jsOverlay.classList.remove('js-hidden');
+            jsOverlay.classList.add('js-visible');
             document.body.classList.add('shake-intense');
-            setTimeout(() => { document.body.classList.remove('shake-intense'); }, 500);
-        }
+
+            // إخفاء بعد ثانية
+            setTimeout(() => {
+                jsOverlay.classList.remove('js-visible');
+                jsOverlay.classList.add('js-hidden');
+                document.body.classList.remove('shake-intense');
+            }, 1200);
+        });
     </script>
 </body>
 </html>
