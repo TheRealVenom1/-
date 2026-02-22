@@ -2,152 +2,95 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE VOID | الكيان المظلم</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>THE ABYSS | الهاوية الرقمية</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body id="master-body">
+<body id="void-body">
 
-    <audio id="ambient" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="whisper-audio" loop src="https://www.soundjay.com/ambient/sounds/ghost-whispers-01.mp3"></audio>
 
-    <div class="static-noise"></div>
-    <div class="vignette-heavy"></div>
-    <div class="blood-rain"></div>
-
-    <div id="gate-keeper">
+    <div id="gatekeeper-overlay">
         <div class="gate-content">
-            <h1 class="warning-text">تحذير: هل أنت مستعد للضياع؟</h1>
-            <button onclick="unlockHell()" class="gate-btn">أوافق على الدخول</button>
+            <h1 class="glitch-text" data-text="مـحـرم">مـحـرم</h1>
+            <p>دخولك يعني أنك تخلت عن حقك في الأمان..</p>
+            <button onclick="enterTheVoid()" class="horror-btn">تـقـدم إلـى الـجـحـيم</button>
         </div>
     </div>
 
-    <header class="master-header">
-        <div class="glitch-container">
-            <h1 class="glitch-title" data-text="الــفـراغ">الــفـراغ</h1>
-            <p class="subtitle"> Listening to Venom </p>
+    <div class="noise-layer"></div>
+    <div class="vignette-layer"></div>
+
+    <header class="main-header">
+        <div class="title-wrap">
+            <h1 class="mega-glitch">الــفـراغ</h1>
+            <div class="venom-top">Listening to Venom</div>
         </div>
-        <div class="scroll-down-anim">اسحب للأسفل.. إذا كنت تجرؤ</div>
+        <div class="scroll-indicator">▼ اسحب للأسفل لتموت ▼</div>
     </header>
 
-    <section class="watcher-room">
-        <div class="eye-wrapper">
-            <div class="eye-lid">
-                <div class="eye-ball">
-                    <div class="iris">
-                        <div class="pupil-dark"></div>
-                    </div>
-                </div>
+    <section class="observation-deck">
+        <div class="creepy-eye">
+            <div class="eye-iris">
+                <div class="eye-pupil"></div>
             </div>
         </div>
-        <div class="room-text">
-            <h3>أنا أراك دائماً</h3>
-            <p>حتى وأنت تظن أنك وحيد.. أنا خلفك.</p>
+        <div class="creepy-text">
+            <h2>نحن نعلم أين تسكن..</h2>
+            <p>المتصفح ليس جداراً كافياً لحمايتك.</p>
         </div>
     </section>
 
-    <section class="ghost-hallway">
-        <div class="hall-text" data-text="لا مفر">لا مفر</div>
-        <div class="shadow-figure"></div>
-    </section>
+    <section class="lost-souls-section">
+        <div class="soul-card" data-text="01">رقمك القادم</div>
+        <div class="soul-card" data-text="02">لا يوجد مخرج</div>
+        <div class="soul-card" data-text="03">استمع للصرخات</div>
+        </section>
 
-    <main class="horror-gallery">
-        <div class="gallery-track">
-            <div class="horror-card">
-                <div class="card-inner">
-                    <div class="card-front">01</div>
-                    <div class="card-back">الموت ليس النهاية</div>
-                </div>
-            </div>
-            <div class="horror-card">
-                <div class="card-inner">
-                    <div class="card-front">02</div>
-                    <div class="card-back">الظلام صديقك الوحيد</div>
-                </div>
-            </div>
-            <div class="horror-card">
-                <div class="card-inner">
-                    <div class="card-front">03</div>
-                    <div class="card-back">اسمع صرخاتهم</div>
-                </div>
-            </div>
-            <div class="horror-card">
-                <div class="card-inner">
-                    <div class="card-front">04</div>
-                    <div class="card-back">لا تنظر تحت السرير</div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <section class="ritual-chamber">
-        <div class="pentagram-container">
-            <svg class="pentagram" viewBox="0 0 100 100">
-                <polygon points="50,5 20,95 95,35 5,35 80,95" />
-            </svg>
-        </div>
-        <div class="ritual-content">
-            <h2>طقوس الاستدعاء</h2>
-            <ul class="requirements">
-                <li>روح بلا خطيئة</li>
-                <li>شمعة سوداء محترقة</li>
-                <li>صمت مطبق</li>
+    <section class="ritual-zone">
+        <div class="ritual-bg"></div>
+        <div class="ritual-box">
+            <h3>طقوس الاستدعاء</h3>
+            <ul class="rit-list">
+                <li>• قلب نابض</li>
+                <li>• صمت مطبق</li>
+                <li>•Listening to Venom</li>
             </ul>
-            <button class="scare-trigger" id="scare-btn">اضغط للمقايضة</button>
+            <button id="final-trigger" class="scare-button">اضـغـط لـلـتـضـحـية</button>
         </div>
     </section>
 
-    <section class="info-section">
-        <div class="info-block">
-            <h4>تاريخ الكيان</h4>
-            <p>بدأ كل شيء في عام 1923 عندما اختفت مدينة كاملة. البرمجة هنا ليست مجرد كود، إنها لعنة رقمية تنتشر عبر السيرفرات.</p>
+    <footer class="terminal-footer">
+        <div class="status-box">
+            <div class="green-dot"></div>
+            <span>Status: Capturing Soul...</span>
         </div>
-    </section>
-
-    <footer class="abyss-footer">
-        <div class="status-indicator">
-            <div class="venom-glow"></div>
-            <span class="status-label">Listening to Venom</span>
-        </div>
-        <p>© 2026 - جحيم المطورين</p>
+        <p class="venom-footer">Listening to Venom</p>
     </footer>
 
-    <div id="jumpscare-overlay" class="js-hidden">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwd3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZ25vcmUmY3Q9Zw/3o7TKv9QW_Z_pY_R_q/giphy.gif" alt="SCARY">
+    <div id="js-screen" class="js-hidden">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwd3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZ25vcmUmY3Q9Zw/v1.Y2lkPTc5MGI3NjExOHIwd3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZ25vcmUmY3Q9Zw/v1.Y2lkPTc5MGI3NjExOHIwd3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6Z3B6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZ25vcmUmY3Q9Zw/3o7TKv9QW_Z_pY_R_q/giphy.gif" alt="js">
     </div>
 
     <script>
-        // دالة تشغيل الصوت والدخول
-        function unlockHell() {
-            const gate = document.getElementById('gate-keeper');
-            const ambient = document.getElementById('ambient');
-            gate.style.opacity = '0';
-            setTimeout(() => gate.style.display = 'none', 1000);
-            ambient.play().catch(e => console.log("الصوت يحتاج تفاعل أكبر"));
+        function enterTheVoid() {
+            document.getElementById('gatekeeper-overlay').style.display = 'none';
+            document.getElementById('whisper-audio').play();
         }
 
-        // دالة الجامب سكير المحسنة
-        const scareBtn = document.getElementById('scare-btn');
-        const jsOverlay = document.getElementById('jumpscare-overlay');
-        
-        scareBtn.addEventListener('click', function() {
-            // تشغيل صوت صرخة قوي
-            const scream = new Audio('https://www.soundjay.com/human/sounds/person-scream-01.mp3');
-            scream.play();
-            
-            // إظهار الوحش
-            jsOverlay.classList.remove('js-hidden');
-            jsOverlay.classList.add('js-visible');
-            document.body.classList.add('shake-intense');
+        const btn = document.getElementById('final-trigger');
+        const js = document.getElementById('js-screen');
 
-            // إخفاء بعد ثانية
+        btn.onclick = function() {
+            let scream = new Audio('https://www.soundjay.com/human/sounds/person-scream-01.mp3');
+            scream.play();
+            js.classList.add('js-active');
+            document.body.classList.add('ultra-shake');
             setTimeout(() => {
-                jsOverlay.classList.remove('js-visible');
-                jsOverlay.classList.add('js-hidden');
-                document.body.classList.remove('shake-intense');
+                js.classList.remove('js-active');
+                document.body.classList.remove('ultra-shake');
             }, 1200);
-        });
+        };
     </script>
 </body>
 </html>
