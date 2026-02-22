@@ -1,0 +1,267 @@
+/* --- إعدادات المتغيرات --- */
+:root {
+    --bg-color: #010101;
+    --blood: #660000;
+    --bright-blood: #ff0000;
+    --text-gray: #444;
+    --glitch-cyan: #0ff;
+    --glitch-magenta: #f0f;
+    --font-main: 'Courier New', Courier, monospace;
+}
+
+/* --- التهيئة الأساسية --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: #eee;
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* --- طبقات الخلفية (Noise & Vignette) --- */
+.static-noise {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://media.giphy.com/media/oEI9uWUzn9W6Y/giphy.gif');
+    opacity: 0.04;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.vignette-heavy {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.9) 100%);
+    z-index: 999;
+    pointer-events: none;
+}
+
+/* --- تأثير قطرات الدم --- */
+.blood-drips {
+    position: fixed;
+    top: 0; width: 100%;
+    display: flex;
+    justify-content: space-around;
+    z-index: 998;
+}
+
+.drip {
+    width: 10px;
+    height: 0;
+    background: var(--blood);
+    border-radius: 0 0 10px 10px;
+    animation: drip-anim 5s infinite;
+}
+
+@keyframes drip-anim {
+    0% { height: 0; opacity: 0; }
+    50% { height: 150px; opacity: 1; }
+    100% { height: 300px; opacity: 0; }
+}
+
+/* --- الهيدر (Glitch Effect) --- */
+.master-header {
+    height: 110vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to bottom, #000, #050000);
+}
+
+.glitch-title {
+    font-size: 8rem;
+    font-weight: 900;
+    color: white;
+    position: relative;
+    text-shadow: 0.05em 0 0 var(--glitch-cyan), -0.05em -0.025em 0 var(--glitch-magenta);
+    animation: glitch-text 1s infinite;
+}
+
+@keyframes glitch-text {
+    0% { transform: translate(0); }
+    20% { transform: translate(-5px, 5px); }
+    40% { transform: translate(-5px, -5px); }
+    60% { transform: translate(5px, 5px); }
+    80% { transform: translate(5px, -5px); }
+    100% { transform: translate(0); }
+}
+
+/* --- غرفة العين (Advanced Eye) --- */
+.watcher-room {
+    height: 100vh;
+    background: #020202;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.eye-wrapper {
+    width: 250px;
+    height: 150px;
+    background: #fff;
+    border-radius: 100% 0%;
+    transform: rotate(45deg);
+    border: 10px solid var(--blood);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 100px var(--blood);
+}
+
+.eye-ball {
+    width: 100%; height: 100%;
+    display: flex; justify-content: center; align-items: center;
+    animation: look-around 4s infinite alternate;
+}
+
+.iris {
+    width: 80px; height: 80px;
+    background: radial-gradient(circle, #300 0%, #000 70%);
+    border-radius: 50%;
+    border: 2px solid red;
+}
+
+@keyframes look-around {
+    0% { transform: translate(-30px, -20px); }
+    100% { transform: translate(30px, 20px); }
+}
+
+/* --- المعرض (Cards) --- */
+.horror-gallery {
+    padding: 100px 50px;
+    background: #000;
+}
+
+.horror-card {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    margin: 50px auto;
+}
+
+.card-inner {
+    width: 100%; height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.horror-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%; height: 100%;
+    backface-visibility: hidden;
+    display: flex; justify-content: center; align-items: center;
+    border: 2px solid var(--blood);
+    font-size: 2rem;
+}
+
+.card-back {
+    background: var(--blood);
+    transform: rotateY(180deg);
+    color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+/* --- الطقوس (Pentagram) --- */
+.ritual-chamber {
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: radial-gradient(circle, #1a0000 0%, #000 100%);
+}
+
+.pentagram {
+    width: 300px;
+    fill: none;
+    stroke: var(--blood);
+    stroke-width: 2;
+    animation: rotate-ritual 20s infinite linear;
+}
+
+@keyframes rotate-ritual {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.scare-trigger {
+    background: transparent;
+    border: 2px solid var(--bright-blood);
+    color: var(--bright-blood);
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.scare-trigger:hover {
+    background: var(--bright-blood);
+    color: black;
+    box-shadow: 0 0 50px var(--bright-blood);
+}
+
+/* --- الفوتر والحالة (Personalized) --- */
+.abyss-footer {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid var(--blood);
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #050505;
+    padding: 15px 30px;
+    border-radius: 5px;
+    border: 1px dashed var(--blood);
+}
+
+.venom-glow {
+    width: 15px; height: 15px;
+    background: #00ff00;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #00ff00;
+    animation: pulse-green 1s infinite alternate;
+}
+
+@keyframes pulse-green {
+    from { opacity: 0.4; } to { opacity: 1; }
+}
+
+/* --- تأثيرات إضافية لزيادة السطور والقوة --- */
+.jumpscare-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: black;
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.shake-intense {
+    animation: intense-shake 0.1s infinite;
+}
+
+@keyframes intense-shake {
+    0% { transform: translate(10px, 10px) rotate(2deg); }
+    50% { transform: translate(-10px, -10px) rotate(-2deg); }
+    100% { transform: translate(10px, -10px) rotate(2deg); }
+}
